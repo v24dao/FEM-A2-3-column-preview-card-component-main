@@ -26,6 +26,7 @@
         --Very-dark-cyan: hsl(179, 100%, 13%);
         --Transparent-white: hsla(0, 0%, 100%, 0.75);
         --Very-light-gray: hsl(0, 0%, 95%);
+        --border: 1rem;
       }
       /* Base Reset */
       *,
@@ -81,6 +82,7 @@
 
       /* Components */
       .container {
+        padding: 2rem 0;
         max-width: 350px;
         margin: 0 auto;
       }
@@ -115,9 +117,9 @@
       }
 
       .sedans {
-        margin-top: 2rem;
+        /* margin-top: 2rem; */
         background-color: var(--bright-orange);
-        border-radius: 1rem 1rem 0 0;
+        border-radius: var(--border) var(--border) 0 0;
       }
 
       .suvs {
@@ -126,7 +128,31 @@
 
       .luxury {
         background-color: var(--Very-dark-cyan);
-        border-radius: 0 0 1rem 1rem;
+        border-radius: 0 0 var(--border) var(--border);
+      }
+
+      @media (min-width: 800px) {
+        /* Change from column layout to row layout*/
+        .container {
+          display: flex;
+          flex-direction: row;
+          max-width: 1000px;
+        }
+
+        /* Center Vertically */
+        body {
+          height: 100%;
+          display: grid;
+          place-items: center;
+        }
+
+        .sedans {
+          border-radius: 1rem 0 0 1rem;
+        }
+
+        .luxury {
+          border-radius: 0 1rem 1rem 0;
+        }
       }
     </style>
   </head>
